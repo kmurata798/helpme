@@ -2,9 +2,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Posts</h1>
-    {% for post in posts %}
-        <h2>{{ post.title }}</h2>
-        <small>{{ post.description }}</small>
-    {% endfor %}
+<h1>Posts</h1>
+
+<a href='/posts/new'>New Post</a>
+
+{% for post in posts %}
+    <h2>{{ post.title }}</h2>
+    <small>{{ post.description }}</small>
+{% endfor %}
 {% endblock %}

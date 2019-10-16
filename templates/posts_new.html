@@ -1,0 +1,30 @@
+<!--Window in which USER can create a new post-->
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST' action='/posts'>
+    <fieldset>
+        <legend>New Post</legend>
+        <!--TITLE-->
+        <p>
+            <label for='title'>Title</label><br>
+            <input type='text' name='title' />
+        </p>
+        <!--DESCRIPTION-->
+        <p>
+            <label for='description'>Description</label><br>
+            <input type='text' name='description' />
+        </p>
+        <!-- VIDEO LINKS -->
+        <p>
+            <label for='post-videos'>Videos</label><br>
+            <p>Add videos in the form of 'https://youtube.com/embed/KEY'. Separate with a newline.</p>
+            <textarea id='post-videos' name='videos' rows='10'></textarea>
+        </p>
+    </fieldset>
+    <!--BUTTON-->
+    <p>
+        <button type='submit'>Save Post</button>
+    </p>
+</form>
+{% endblock %}
