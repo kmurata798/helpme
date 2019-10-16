@@ -15,8 +15,8 @@ posts = db.posts
 #     return render_template('home.html', msg = 'I am good')
 
 posts = [
-    { 'title': 'Cat Videos', 'description': 'Cats acting weird' },
-    { 'title': '80\'s Music', 'description': 'Don\'t stop believing!' }
+    { 'title': 'Math Question', 'description': 'NEED HELP WITH PROBLEM 1' },
+    { 'title': 'Song requests', 'description': 'Send me any songs to listen to!' }
 ]
 
 @app.route('/')
