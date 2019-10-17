@@ -17,7 +17,7 @@ def posts_index():
 @app.route('/posts/new')
 def posts_new():
     """Create a new post."""
-    return render_template('posts_new.html')
+    return render_template('posts_new.html', post={}, title='New Post')
 
 @app.route('/posts', methods=['POST'])
 def posts_submit():
@@ -38,6 +38,12 @@ def posts_show(post_id):
     post = posts.find_one({'_id': ObjectId(post_id)})
     # return f'my ID is {post_id}'
     return render_template('posts_show.html', post=post)
+
+@app.route('/posts/<post_id>/edit')
+def posts_edit(post_id):
+    '''shows the editing form for a post'''
+    post = posts.find_one({'_id': ObjectId(post_id)})
+    return render_template('posts_edit.html', post=post, title='Edit Post')
 
 if __name__ == '__main__':
     app.run(debug=True)
