@@ -24,10 +24,20 @@ def posts_submit():
     """Submit a new post."""
     post = {
         'title': request.form.get('title'),
-        'description': request.form.get('description')
+        'description': request.form.get('description'),
+        'videos': request.form.get('videos').split(),
+        'topic': request.form.get('topic')
     }
-    posts.insert_one(post)
-    return redirect(url_for('posts_index'))
+    # posts.insert_one(post)
+    post_id = posts.insert_one(post).inserted_id
+    return redirect(url_for('posts_show', post_id=post_id))
+
+@app.route('/posts/<post_id>')
+def posts_show(post_id):
+    '''show specific post'''
+    post = posts.find_one({'_id': ObjectId(post_id)})
+    # return f'my ID is {post_id}'
+    return render_template('posts_show.html', post=post)
 
 if __name__ == '__main__':
     app.run(debug=True)
