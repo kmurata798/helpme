@@ -5,11 +5,12 @@ import os
 
 app = Flask(__name__)
 
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/helpme')
-# client = MongoClient(host=f"{host}?retryWrites=false")
-client = MongoClient(host=host)
-db = client.posts
+host = os.environ.get('MONGODB_URI', 'mongodb://username:password1@ds335648.mlab.com:35648/heroku_g0q4rl52/')
+client = MongoClient(host=f"{host}?retryWrites=false")
+db = client.get_default_database()
 posts = db.posts
+# client = MongoClient(host=host)
+# db = client.posts
 
 @app.route('/')
 def posts_index():
