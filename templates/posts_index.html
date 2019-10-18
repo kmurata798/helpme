@@ -4,8 +4,10 @@
 {% block content %}
 <h1>Posts</h1>
 
-<a href='/posts/new'>New Post</a>
-
+<!-- <a href='/posts/new'>New Post</a> -->
+<p><form method='GET' action='/posts/new'>
+    <button type='submit' class="btn btn-success">New Post</button>
+</form></p>
 {% for post in posts %}
     <h2><a href='/posts/{{ post._id }}''>{{ post.title }}</a></h2>
     <small>{{ post.description }}</small>

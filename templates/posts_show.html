@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <!doctype html>
 <html>
 
@@ -23,8 +26,9 @@
     <p><a href='/posts/{{ post._id }}/edit'>Edit</a></p>
     <!-- DELETE BUTTON!-->
     <p><form method='POST' action='/posts/{{ post._id }}/delete'>
-        <button type='submit'>Delete</button>
+        <button type='submit' class="btn btn-danger">Delete</button>
     </form></p>
 </body>
 
 </html>
+{% endblock %}
