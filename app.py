@@ -5,8 +5,8 @@ import os
 
 app = Flask(__name__)
 
-
-client = MongoClient()
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/helpme')
+client = MongoClient(host=f"{host}?retryWrites=false")
 db = client.posts
 posts = db.posts
 
@@ -64,4 +64,4 @@ def posts_edit(post_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
