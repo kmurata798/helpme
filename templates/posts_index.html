@@ -8,6 +8,7 @@
 <p><form method='GET' action='/posts/new'>
     <button type='submit' class="btn btn-success">New Post</button>
 </form></p>
+<h4>Recent Posts</h4>
 {% for post in posts %}
     <h2><a href='/posts/{{ post._id }}''>{{ post.title }}</a></h2>
     <small>{{ post.description }}</small>
