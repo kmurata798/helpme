@@ -3,15 +3,21 @@
 
 {% block content %}
 <h1>Posts</h1>
+<hr>
+
 
 <!-- <a href='/posts/new'>New Post</a> -->
 <p><form method='GET' action='/posts/new'>
     <button type='submit' class="btn btn-success">New Post</button>
 </form></p>
-<h4>Recent Posts</h4>
+
+<h4 class="recent-posts">Recent Posts</h4>
+<hr>
 {% for post in posts %}
+
     <h2><a href='/posts/{{ post._id }}''>{{ post.title }}</a></h2>
     <small>{{ post.description }}</small>
+    <hr>
     <!-- <small>{{ post.topic }}</small> -->
 {% endfor %}
 {% endblock %}

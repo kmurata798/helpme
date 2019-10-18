@@ -1,8 +1,24 @@
 body {
-    background: rgb(0, 20, 100);
-    margin-left: 300px;
+    background: rgb(3, 98, 98);
+    margin-left: 100px;
 }
 
-h4 {
-    color: rgb(30, 130, 180)
+.recent-posts {
+    color: rgb(5, 204, 194);
+
+}
+
+hr {
+    border: none;
+    height: 2px;
+    color: rgba(118, 231, 231, 0.76);
+    background-color: rgba(81, 155, 155, 0.76);
+    margin-left: -100px;
+}
+
+h1 {
+    color: rgba(226, 234, 236, 0.877);
+}
+h2 {
+    color: rgb(153, 221, 221);
 }
