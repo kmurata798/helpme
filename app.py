@@ -27,8 +27,8 @@ def posts_submit():
     post = {
         'title': request.form.get('title'),
         'description': request.form.get('description'),
-        'videos': request.form.get('videos'),
-        'topic': request.form.get('topic')
+        'videos': request.form.get('videos')
+        # 'topic': request.form.get('topic')
     }
     # posts.insert_one(post)
     post_id = posts.insert_one(post).inserted_id
@@ -62,6 +62,11 @@ def posts_edit(post_id):
         posts.update_one({'_id': ObjectId(post_id)}, {'$set': post})
         return redirect(url_for('posts_index'))
      
+@app.route('/posts/<post_id>/delete', methods =['POST'])
+def posts_delete(post_id):
+    '''deletes a post'''
+    posts.delete_one({'_id': ObjectId(post_id)})
+    return redirect(url_for('posts_index'))
 
 
 if __name__ == '__main__':
