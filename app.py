@@ -6,7 +6,8 @@ import os
 app = Flask(__name__)
 
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/helpme')
-client = MongoClient(host=f"{host}?retryWrites=false")
+# client = MongoClient(host=f"{host}?retryWrites=false")
+client = MongoClient(host=host)
 db = client.posts
 posts = db.posts
 
