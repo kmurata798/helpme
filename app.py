@@ -49,7 +49,7 @@ def posts_edit(post_id):
     '''shows the editing form for a post'''
     if request.method == 'GET':
         post = posts.find_one({'_id': ObjectId(post_id)})
-        return render_template('posts_edit.html', post=post)
+        return render_template('posts_edit.html', post=post, title='Editing')
     if request.method == 'POST':
         post = {
         'title': request.form.get('title'),

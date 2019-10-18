@@ -9,20 +9,25 @@
         <!-- DESCRIPTION -->
         <p>
           <label for='description'>Description</label><br>
-          <input id='description' type='text' name='description' value='{{ post.description }}' />
+          <textarea id='post-description' name='description' rows='15' cols='33'>{{ "".join(post.description) }}</textarea>
+          <!-- <input id='description' type='text' name='description' value='{{ post.description }}' /> -->
         </p>
 
         <!-- VIDEO LINKS -->
         <p>
           <label for='post-videos'>Videos</label><br>
           <p>Add videos in the form of 'https://youtube.com/embed/KEY'. Separate with a newline.</p>
-          <textarea id='post-videos' name='videos' rows='10'>{{ "\n".join(post.videos) }}</textarea>
+          <textarea id='post-videos' name='videos' rows='10' cols='33'>{{ "".join(post.videos) }}</textarea>
         </p>
         </fieldset>
 
         <!-- BUTTON -->
         <p>
-            <button type='submit'>Update post</button>
+            <button type='submit'>Save post</button>
+            {% if post._id %}
             <a href='/posts/{{ post._id }}'> Cancel </a>
+            {% else %}
+            <a href='/'> Cancel </a>
+            {% endif %}
         </p>
             
