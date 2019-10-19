@@ -2,6 +2,7 @@ from unittest import TestCase, main as unittest_main, mock
 from bson.objectid import ObjectId
 from app import app
 
+'''Mock Data'''
 sample_post_id = ObjectId('5d55cffc4a3d4031f42827a3')
 sample_post = {
     'title': 'Math problem',
@@ -75,6 +76,7 @@ class helpMeTest(TestCase):
 
     @mock.patch('pymongo.collection.Collection.delete_one')
     def test_delete_post(self, mock_delete):
+        '''tests the delete post button'''
         form_data = {'_method': 'DELETE'}
         result = self.client.post(f'/posts/{sample_post_id}/delete', data=form_data)
         self.assertEqual(result.status, '302 FOUND')

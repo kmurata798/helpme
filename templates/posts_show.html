@@ -1,3 +1,4 @@
+<!--DISPLAYS THE SINGLE POST-->
 {% extends 'base.html' %}
 
 {% block content %}
@@ -14,7 +15,7 @@
 </head>
 
 <body>
-
+    <!--HOME BUTTON-->
     <a href='/'>Back to Home</a>
 
     <h1>{{ post.title }}</h1>
@@ -24,6 +25,7 @@
     
     <!-- <h3>{{ post.topic }}</h3> -->
     <p><a href='/posts/{{ post._id }}/edit'>Edit</a></p>
+    
     <!-- DELETE BUTTON!-->
     <p><form method='POST' action='/posts/{{ post._id }}/delete'>
         <button type='submit' class="btn btn-danger">Delete</button>

@@ -3,6 +3,7 @@
 <html>
 
 <head>
+    <!--TAB TITLE-->
     <meta charset='utf-8'>
     {% if title %}
     <title>{{ title }}</title>
@@ -17,7 +18,7 @@
 </head>
 
 <body>
-
+    <!--INSERTS extended templates directed towards base.html-->
     {% block content %}
     BODY CONTENT GOES HERE
     {% endblock %}
